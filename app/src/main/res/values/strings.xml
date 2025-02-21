@@ -2,4 +2,8 @@
     <string name="app_name">AndroidStudioPres</string>
     <string name="hello_epita">Hello EPITA\'s Students</string>
     <string name="another_textview">Another TextView</string>
+    <string name="change_with_r_string" translatable="false">change text programmatically with r.String</string>
+    <string name="changed_with_r_string" translatable="false">change has been done programmatically with r.String</string>
+    <string name="change_with_getressources" translatable="false">change text programmatically with getRessources</string>
+    <string name="changed_with_getressources" translatable="false">change has been done programmatically with getRessources</string>
 </resources>
