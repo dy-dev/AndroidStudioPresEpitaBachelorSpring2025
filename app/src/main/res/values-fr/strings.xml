@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AndroidStudioPres</string>
+    <string name="hello_epita">Bonjour les étudiants</string>
+    <string name="another_textview">Un autre TextView</string>
+
+</resources>

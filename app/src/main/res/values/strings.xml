@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndroidStudioPres</string>
+    <string name="hello_epita">Hello EPITA\'s Students</string>
+    <string name="another_textview">Another TextView</string>
+</resources>
