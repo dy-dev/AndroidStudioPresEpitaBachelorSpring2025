@@ -6,7 +6,8 @@
     </style>
 
     <style name="Theme.AndroidStudioPres" parent="Base.Theme.AndroidStudioPres" >
-        <item name="android:textColor">@color/redish</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/greenish</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:padding">5sp</item>
     </style>
 </resources>
