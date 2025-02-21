@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".GuessANumber">
 
     <LinearLayout
+        android:id="@+id/scoreLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -31,81 +32,149 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/gameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_above="@id/difficultyCheckbox"
+        android:layout_below="@id/scoreLayout"
+        android:orientation="vertical"
+        android:visibility="gone">
 
-        <TextView
-            android:id="@+id/textView8"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guess the Number : " />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/editTextNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:inputType="number" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Guess the Number : " />
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/redish"
+            android:text="Validate Guess" />
 
-        <Space
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/editTextNumber"
-            android:layout_width="wrap_content"
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="8" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hintLinearLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="5"
-            android:inputType="number" />
+            android:orientation="horizontal">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="Your number is : " />
+
+            <TextView
+                android:id="@+id/hintTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TOO SMALL" />
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button3"
+
+    <LinearLayout
+        android:id="@+id/difficultyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/scoreLayout"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="selectDiff"
+                android:tag="EASY"
+                android:text="Easy" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="selectDiff"
+                android:tag="MEDIUM"
+                android:text="Medium" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="selectDiff"
+                android:tag="HARD"
+                android:text="Hard" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/validationDifficultyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="20dp"
+            android:enabled="false"
+            android:text="Validate Difficulty" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/difficultyCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Validate" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="CheckBox" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_weight="8"/>
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="3" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/hintLinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="Your number is : "/>
-
-        <TextView
-            android:id="@+id/hintTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TOO SMALL" />
-    </LinearLayout>
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-
-</LinearLayout>
+</RelativeLayout>
